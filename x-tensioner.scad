@@ -2,12 +2,12 @@
 // the x-axis stepper motor.
 
 // the screw hole width
-mount_screw_diameter = 3.0;
+mount_screw_diameter = 5.0;
 mount_screw_radius = mount_screw_diameter / 2;
 
 // the left side of the mount relative to the screw hole, looking from the left of the printer
-mount_left_width = 7;
-mount_right_width = 7;
+mount_left_width = 6;
+mount_right_width = 6;
 
 full_rail_width = mount_left_width + mount_screw_diameter + mount_right_width;
 
@@ -50,7 +50,7 @@ difference() {
 // a support for the bearing shaft
 full_bearing_radius = 11;
 translate([mount_left_width,0,wall_thickness]) {
-  cube([(mount_left_width + mount_right_width + mount_screw_diameter) - mount_right_width - bearing_width, wall_thickness, full_bearing_radius + bearing_shaft_radius]);
+  cube([(full_rail_width- mount_left_width - bearing_width), full_rail_width - mount_left_width - bearing_width, full_bearing_radius + bearing_shaft_radius]);
 }
 
 // the cylinder to hold the bearing
